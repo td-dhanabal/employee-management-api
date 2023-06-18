@@ -9,4 +9,8 @@ router.get('/', employeeController.all_employee);
 
 router.get('/:id', employeeController.get_employee);
 
+router.put('/:id', employeeImg.single('file'), employeeController.update_employee);
+
+router.delete("/:id", employeeController.delete_employee);
+
 module.exports = router;

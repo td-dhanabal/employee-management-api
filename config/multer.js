@@ -1,11 +1,13 @@
-const multer = require('multer')
+const multer = require('multer');
+const uuid = require('uuid');
 
 const productFiles = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './uploads');
     },
     filename(req, file, callback) {
-        callback(null, `${Date.now()}_${file.originalname}`)
+        callback(null, uuid.v4() +'.'+ file.originalname);
+        // callback(null, `${Date.now()}_${file.originalname}`)
     }
 })
 
